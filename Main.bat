@@ -13,7 +13,7 @@ echo.
 rem === CONFIGURATION ===
 set "repodir=%~dp0source"
 set "updaterepo=https://github.com/ghoz709playz559/aster-updates.git"
-set "versionfile=%repodir%\version.txt"
+set "versionfile=%repodir%\version"
 set "tempdir=%temp%\aster_update_check"
 set "mainfile=%~dp0META-INF\data\main\main.bat"
 
@@ -34,14 +34,14 @@ rem === Quietly check for latest version ===
 if exist "%tempdir%" rd /s /q "%tempdir%" >nul 2>nul
 git clone --depth 1 "%updaterepo%" "%tempdir%" >nul 2>nul
 
-if not exist "%tempdir%\version.txt" (
+if not exist "%tempdir%\version" (
     echo [Error] Unable to reach update server or invalid repository.
     echo Please check your internet connection.
     pause
     exit /b
 )
 
-set /p remotever=<"%tempdir%\version.txt"
+set /p remotever=<"%tempdir%\version"
 rd /s /q "%tempdir%" >nul 2>nul
 
 rem === Compare versions ===
