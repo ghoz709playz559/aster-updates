@@ -16,11 +16,13 @@ echo.
 echo [1] Enable Timestamps
 echo [2] Continue
 echo [3] Exit
+echo [N] I Love Pra
 echo.
 set /p input="%USER%@aster-setup ~$ "
 if /i "%input%"=="1" goto script1
 if /i "%input%"=="2" goto body
 if /i "%input%"=="3" exit
+if /i "%input%"=="N" cls && Ilove pratech
 
 REM Body
 :body
